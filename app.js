@@ -69,4 +69,12 @@ app.get("/api/debris", DebrisController.getList);
 app.post("/api/debris", DebrisController.postDebris);
 app.delete("/api/debris/:id", DebrisController.deleteDebris);
 
+// BLOQUE AGREGADO PARA INICIAR EL SERVIDOR
+const PORT = 3000;
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  });
+}
+
 module.exports = { app, DebrisModel, DebrisService, resetDatabase };
